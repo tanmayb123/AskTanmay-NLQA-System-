@@ -48,6 +48,7 @@ AskTanmay's dependencies consist of the following software:
 - okhttp (v2.7.4)
 - okio (v1.4.0)
 - topia.termextract
+
 Thanks to the above sources for making AskTanmay possible.
 
 ## License
