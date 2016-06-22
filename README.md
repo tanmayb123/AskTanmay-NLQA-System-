@@ -36,6 +36,16 @@ In order to run the binary, do this:
  1. From that project directory, navigate to "build/Release"
  2. Run AskTanmay with a question: `./TanmayQA "<QUESTION>"`
 
+----------
+## Credits
+AskTanmay's dependencies consist of the following software:
+- IBM Watson java-sdk (v2.9.5)
+- gson (v2.3.1)
+- okhttp (v2.7.4)
+- okio (v1.4.0)
+- topia.termextract
+Thanks to the above sources for making AskTanmay possible.
+
 ## License
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">AskTanmay (codename: TanmayQA)</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Tanmay Bakshi</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
