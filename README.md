@@ -22,6 +22,10 @@ In order to build AskTanmay, you must have the following dependencies:
 
 ***NOTE! Do not build AskTanmay from Xcode! It is not designed for this, though with a bit of modification, can run. While it will build successfully, it won't work in the later stages, as the Python and Java components have not been added. However, you can use Xcode as an IDE, and Build ("CMD+B"), not Run ("CMD+R"), to check your code, and save it.***
 
+Before building & running AskTanmay, you will need to fill out some credentials & API Keys. You need to fill out credentials in the following files:
+- `GlobalConstants.swift`
+- `NER_FNS.java` (at `service.setApiKey("<ALCHEMYAPI KEY>");`)
+
 Now, the build instructions:
 
  1. Go into Terminal
