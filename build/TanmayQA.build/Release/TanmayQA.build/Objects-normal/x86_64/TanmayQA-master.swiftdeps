@@ -1,0 +1,20 @@
+version: "Apple Swift version 2.2 (swiftlang-703.0.18.8 clang-703.0.31)"
+options: "0150f6277b33b2658fde31d057b8cd95"
+build_time: [518412614, 771291000]
+inputs:
+  "/Volumes/External HD/TanmayQA/TanmayQA/SATD.swift": [518213960, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/CAFS.swift": [518136312, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/main.swift": [518407473, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/Ranker.swift": [517202032, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/Python.swift": [516570452, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/CreateFile.swift": [516435626, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/ATD.swift": [518213960, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/NLCHandler.swift": [518255711, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/Java.swift": [517197529, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/ReadFile.swift": [516603408, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/StringExtension.swift": [518066473, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/CAG.swift": [518323640, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/SERSE.swift": [518412604, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/TQACore.swift": [518294884, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/RunShell.swift": [517525282, 0]
+  "/Volumes/External HD/TanmayQA/TanmayQA/GlobalConstants.swift": [518299522, 0]
