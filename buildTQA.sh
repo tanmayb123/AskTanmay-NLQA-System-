@@ -1,3 +1,6 @@
+cd OpenEphyra
+ant
+cd ..
 xcodebuild -project TanmayQA.xcodeproj
 cp TanmayQA_CAG/ngrammine.py build/Release/ngrammine.py
 cp -r TanmayQA_CAG/topia build/Release/topia
