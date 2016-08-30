@@ -10,9 +10,10 @@
 		0102DD391CE8372600031E64 /* CAFS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102DD381CE8372600031E64 /* CAFS.swift */; };
 		012BEBED1CE4465100EE4AB9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012BEBEC1CE4465100EE4AB9 /* main.swift */; };
 		012BEBF61CE447E000EE4AB9 /* TQACore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012BEBF51CE447E000EE4AB9 /* TQACore.swift */; };
-		012BEBF91CE448D900EE4AB9 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012BEBF81CE448D900EE4AB9 /* GlobalConstants.swift */; };
+		012BEBF91CE448D900EE4AB9 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012BEBF81CE448D900EE4AB9 /* Global.swift */; };
 		012BEBFC1CE4496200EE4AB9 /* ATD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012BEBFB1CE4496200EE4AB9 /* ATD.swift */; };
 		012BEC011CE4497D00EE4AB9 /* NLCHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012BEC001CE4497D00EE4AB9 /* NLCHandler.swift */; };
+		016884491D713698000E3282 /* OpenEphyra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016884481D713698000E3282 /* OpenEphyra.swift */; };
 		01B5F5611CE5A718000A7EE5 /* CreateFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5F5601CE5A718000A7EE5 /* CreateFile.swift */; };
 		01B5F5631CE5AA00000A7EE5 /* ReadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5F5621CE5AA00000A7EE5 /* ReadFile.swift */; };
 		01B5F5661CE6833B000A7EE5 /* SERSE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B5F5651CE6833B000A7EE5 /* SERSE.swift */; };
@@ -42,9 +43,10 @@
 		012BEBE91CE4465100EE4AB9 /* TanmayQA */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TanmayQA; sourceTree = BUILT_PRODUCTS_DIR; };
 		012BEBEC1CE4465100EE4AB9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		012BEBF51CE447E000EE4AB9 /* TQACore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TQACore.swift; sourceTree = "<group>"; };
-		012BEBF81CE448D900EE4AB9 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		012BEBF81CE448D900EE4AB9 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		012BEBFB1CE4496200EE4AB9 /* ATD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ATD.swift; sourceTree = "<group>"; };
 		012BEC001CE4497D00EE4AB9 /* NLCHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLCHandler.swift; sourceTree = "<group>"; };
+		016884481D713698000E3282 /* OpenEphyra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenEphyra.swift; sourceTree = "<group>"; };
 		01B5F5601CE5A718000A7EE5 /* CreateFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFile.swift; sourceTree = "<group>"; };
 		01B5F5621CE5AA00000A7EE5 /* ReadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadFile.swift; sourceTree = "<group>"; };
 		01B5F5651CE6833B000A7EE5 /* SERSE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SERSE.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				01D837E81CE59E760097A993 /* ClassExtensions */,
 				012BEBFF1CE4497100EE4AB9 /* WatsonHandlers */,
 				012BEBFA1CE4495200EE4AB9 /* Engines */,
+				016884471D713687000E3282 /* ExternalNLQA */,
 				012BEBF71CE448CE00EE4AB9 /* Global */,
 				012BEBF41CE447B400EE4AB9 /* Core */,
 				012BEBEC1CE4465100EE4AB9 /* main.swift */,
@@ -114,7 +117,7 @@
 		012BEBF71CE448CE00EE4AB9 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				012BEBF81CE448D900EE4AB9 /* GlobalConstants.swift */,
+				012BEBF81CE448D900EE4AB9 /* Global.swift */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -138,6 +141,14 @@
 				012BEC001CE4497D00EE4AB9 /* NLCHandler.swift */,
 			);
 			name = WatsonHandlers;
+			sourceTree = "<group>";
+		};
+		016884471D713687000E3282 /* ExternalNLQA */ = {
+			isa = PBXGroup;
+			children = (
+				016884481D713698000E3282 /* OpenEphyra.swift */,
+			);
+			name = ExternalNLQA;
 			sourceTree = "<group>";
 		};
 		01B5F55F1CE5A6FD000A7EE5 /* FilesystemInterface */ = {
@@ -250,10 +261,11 @@
 				01B5F5631CE5AA00000A7EE5 /* ReadFile.swift in Sources */,
 				01D837EA1CE59E870097A993 /* StringExtension.swift in Sources */,
 				01B5F5681CE6A056000A7EE5 /* CAG.swift in Sources */,
+				016884491D713698000E3282 /* OpenEphyra.swift in Sources */,
 				01B5F5661CE6833B000A7EE5 /* SERSE.swift in Sources */,
 				012BEBF61CE447E000EE4AB9 /* TQACore.swift in Sources */,
 				01B5F5BD1CE7B7AA000A7EE5 /* RunShell.swift in Sources */,
-				012BEBF91CE448D900EE4AB9 /* GlobalConstants.swift in Sources */,
+				012BEBF91CE448D900EE4AB9 /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
