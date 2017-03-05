@@ -1,9 +1,9 @@
 # Welcome to AskTanmay!
-![Image of Yaktocat](http://www.tanmaybakshi.com/asktanmaylogo5.png)
+![AskTanmay](http://www.tanmaybakshi.com/asktanmaylogo5.png)
 
 This repository contains the complete source code for AskTanmay.
 ### Current Versions
-(Beta) 2.0
+(Stable) 2.1 (master)
 
 
 ----------
@@ -12,19 +12,26 @@ AskTanmay is a Natural Language Question-Answering system (NLQA system), built i
 
 
 ----------
+## Currently Supported Answer Types
+ - Person (e.g. "Who is the CEO of IBM?")
+ - Organization/Company (e.g. "Which worldwide retail chain makes the most profit?")
+ - Location (e.g. "Where is the Taj Mahal?" or "In which city is the Taj Mahal?")
+
+
+----------
 ## Build instructions
 In order to build AskTanmay, you must have the following dependencies:
 
  - Python 2.7.10
  - Java 8
- - Xcode 7.3.1 (latest stable Xcode)
- - Mac OS X
+ - Xcode 8.2.1 (latest stable Xcode)
+ - macOS
 
 ***NOTE! Do not build AskTanmay from Xcode! It is not designed for this, though with a bit of modification, can run. While it will build successfully, it won't work in the later stages, as the Python and Java components have not been added. However, you can use Xcode as an IDE, and Build ("CMD+B"), not Run ("CMD+R"), to check your code, and save it.***
 
 Before building & running AskTanmay, you will need to fill out some credentials & API Keys. You need to fill out credentials in the following files:
-- `GlobalConstants.swift`
-- `NER_FNS.java` (at `service.setApiKey("<ALCHEMYAPI KEY>");`)
+- `TanmayQA/GlobalConstants.swift`
+- `TanmayQA_NER_FNS/NER_FNS.java` (at `service.setApiKey("<ALCHEMYAPI KEY>");`)
 
 Now, the build instructions:
 
@@ -48,6 +55,7 @@ AskTanmay's dependencies consist of the following software:
 - okhttp (v2.7.4)
 - okio (v1.4.0)
 - topia.termextract
+- zope.interface
 
 Thanks to the above sources for making AskTanmay possible.
 
