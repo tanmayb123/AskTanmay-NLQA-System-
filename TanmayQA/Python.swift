@@ -10,13 +10,13 @@ import Foundation
 
 class PythonBridge {
     
-    var scriptName: String!
+    var scriptName: String = ""
     
     init(scriptName: String) {
         self.scriptName = scriptName
     }
     
-    func runScript(args: String) -> String {
+    func runScript(_ args: String) -> String {
         return RunShell().execcmd("\(PYTHONBRIDGE_COMMAND) \(scriptName).py \(args)") as String
     }
     

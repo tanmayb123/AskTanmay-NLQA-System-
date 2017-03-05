@@ -13,7 +13,7 @@ import com.ibm.watson.developer_cloud.alchemy.v1.model.LanguageSelection;
  * This is *very-very-very* old code from a small version of AskTanmay.
  * However, other bug fixes prioritized over cleaning up this code, so this remains unorganized from Alpha version.
  * If you'd like to contribute to the repo, and clean the code, please do!
- * This is intended to be cleaned by version 2.2, and translated to Swift by 3.
+ * This is intended to be cleaned & translated to Swift by version 3.
  * 
  * This is how the arguments should look when running this code: <ATD Result> "[candidate answer]" [candidate answer score] "[candidate answer]" [candidate answer score] ...
  * Example: 'java -jar <jarfile>.jar PERSON "Stephen Hillenburg" 50 "Tom Kenny" 25 "Nickelodeon" 10'

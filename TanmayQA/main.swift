@@ -8,7 +8,7 @@
 
 import Foundation
 
-system("clear")
+//system("clear")
 
 print("+------------------------------------------+")
 print("|                                          |")
@@ -19,6 +19,4 @@ print("|             - Tanmay Bakshi              |")
 print("|                                          |")
 print("+------------------------------------------+")
 
-TQACore(userQuery: Process.arguments[1])
-//print(SATD_CLASSIFIERS[ATDEngine(question: "In which city is Taj Mahal?").runATD()]!)
-//print(SATDEngine(ATDResult: ATDEngine(question: "In which city is Taj Mahal?").runATD(), userQuery: "In which city is Taj Mahal?").runEngine())
+TQACore(userQuery: CommandLine.arguments[1])

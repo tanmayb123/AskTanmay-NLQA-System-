@@ -10,8 +10,8 @@ import Foundation
 
 class CreateFile {
     
-    var filename: String!
-    var contents: String!
+    var filename: String = ""
+    var contents: String = ""
     
     init(filename: String, contents: String) {
         self.filename = filename
@@ -19,8 +19,8 @@ class CreateFile {
     }
     
     func writeFile() {
-        let currentDir = NSFileManager.defaultManager().currentDirectoryPath
-        try! contents.writeToFile((currentDir as NSString).stringByAppendingPathComponent(filename), atomically: false, encoding: NSUTF8StringEncoding)
+        let currentDir = FileManager.default.currentDirectoryPath
+        try! contents.write(toFile: (currentDir as NSString).appendingPathComponent(filename), atomically: false, encoding: String.Encoding.utf8)
     }
     
 }

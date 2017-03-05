@@ -6,11 +6,11 @@
 //  Copyright © 2016 Tanmay Bakshi. All rights reserved.
 //
 
-let ATD_CLASSIFIER_ID = "3a84d1x62-nlc-18693"
+let ATD_CLASSIFIER_ID = "[ATD Watson Classifier ID]"
 let ATD_CLASSIFIER_UN = "[ATD Watson UN]"
 let ATD_CLASSIFIER_PW = "[ATD Watson PW]"
 
-let SATD_CLASSIFIERS = ["GPE": "3a84d1x62-nlc-20473"]
+let SATD_CLASSIFIERS = ["GPE": "S-ATD--GPE Watson Classifier ID"]
 let SATD_CLASSIFIER_UN = "[SATD Watson UN]"
 let SATD_CLASSIFIER_PW = "[SATD Watson PW]"
 

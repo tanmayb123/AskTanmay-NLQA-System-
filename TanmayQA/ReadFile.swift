@@ -10,16 +10,16 @@ import Foundation
 
 class ReadFile {
     
-    var filename: String!
+    var filename: String = ""
     
     init(filename: String) {
         self.filename = filename
     }
     
     func readFile() -> String {
-        let currentDir = NSFileManager.defaultManager().currentDirectoryPath
+        let currentDir = FileManager.default.currentDirectoryPath
         do {
-            let result = try String(contentsOfFile: (currentDir as NSString).stringByAppendingPathComponent(filename))
+            let result = try String(contentsOfFile: (currentDir as NSString).appendingPathComponent(filename))
             RunShell().execcmd("rm \(filename)")
             return result
         } catch {

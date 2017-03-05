@@ -10,9 +10,9 @@ import Foundation
 
 class Ranker {
     
-    func quicksort(toSort: [String: Int]) -> [(String, Int)] {
+    func quicksort(_ toSort: [String: Int]) -> [(String, Int)] {
         var finalValue = [(String, Int)]()
-        for (k,v) in (Array(toSort).sort({$0.1 > $1.1})) {
+        for (k,v) in (Array(toSort).sorted(by: {$0.1 > $1.1})) {
             finalValue.append((k, v))
         }
         return finalValue

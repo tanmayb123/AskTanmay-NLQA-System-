@@ -10,9 +10,9 @@ import Foundation
 
 class TQACore {
     
-    var userQuery: String!
+    var userQuery: String = ""
     
-    var answers: [(String, Int)]!
+    var answers: [(String, Int)] = []
     
     var ATDRes = ""
     
@@ -20,7 +20,7 @@ class TQACore {
     
     init(userQuery: String) {
         print("You asked: \(userQuery)")
-        self.userQuery = userQuery.lowercaseString
+        self.userQuery = userQuery.lowercased()
         answers = []
         runATD()
         runSATD()

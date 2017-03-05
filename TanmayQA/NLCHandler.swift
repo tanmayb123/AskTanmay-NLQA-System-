@@ -10,10 +10,10 @@ import Foundation
 
 class NLCHandler {
     
-    var classifierID: String!
-    var text: String!
-    var username: String!
-    var password: String!
+    var classifierID: String = ""
+    var text: String = ""
+    var username: String = ""
+    var password: String = ""
     
     init(classifierID: String, text: String, username: String, password: String) {
         self.classifierID = classifierID
@@ -23,10 +23,10 @@ class NLCHandler {
     }
     
     func runHandler() -> String {
-        let response = RunShell().execcmd("curl -G -u \"\(username)\":\"\(password)\" \"https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/\(classifierID)/classify\" --data-urlencode \"text=\(text)\"").dataUsingEncoding(NSUTF8StringEncoding)
+        let response = RunShell().execcmd("curl -G -u \"\(username)\":\"\(password)\" \"https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/\(classifierID)/classify\" --data-urlencode \"text=\(text)\"").data(using: String.Encoding.utf8.rawValue)
         if let responseData = response {
             // !! Assume JSON ( FIX THIS ) !! \\
-            let jsonResponse = try! NSJSONSerialization.JSONObjectWithData(responseData, options: .MutableContainers) as! [String: AnyObject]
+            let jsonResponse = try! JSONSerialization.jsonObject(with: responseData, options: .mutableContainers) as! [String: AnyObject]
             return jsonResponse["top_class"] as! String
         } else {
             print("Error while trying to run NLC Instance.")

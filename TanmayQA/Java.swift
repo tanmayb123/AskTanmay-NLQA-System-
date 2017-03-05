@@ -10,7 +10,7 @@ import Foundation
 
 class JavaBridge {
     
-    var className: String!
+    var className: String = ""
     
     var classPath: String? = nil
     
@@ -23,7 +23,7 @@ class JavaBridge {
         self.classPath = "-cp \(cpArg):."
     }
     
-    func runJar(arguments: String) -> String {
+    func runJar(_ arguments: String) -> String {
         return RunShell().execcmd("\(JAVABRIDGE_COMMAND)\(classPath == nil ? "" : " \(classPath!)") \(className)\(arguments == "" ? "" : " \(arguments)")") as String
     }
     

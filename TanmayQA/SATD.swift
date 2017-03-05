@@ -10,8 +10,8 @@ import Foundation
 
 class SATDEngine {
     
-    var ATDResult: String!
-    var userQuery: String!
+    var ATDResult: String = ""
+    var userQuery: String = ""
     
     init(ATDResult: String, userQuery: String) {
         self.ATDResult = ATDResult

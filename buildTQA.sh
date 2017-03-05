@@ -1,6 +1,7 @@
 xcodebuild -project TanmayQA.xcodeproj
 cp TanmayQA_CAG/ngrammine.py build/Release/ngrammine.py
 cp -r TanmayQA_CAG/topia build/Release/topia
+cp -r TanmayQA_CAG/zope build/Release/zope
 cd TanmayQA_NER_FNS
 mkdir tmpDependencies
 (cd tmpDependencies; jar -xf ../gson-2.3.1.jar)

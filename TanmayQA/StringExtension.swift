@@ -11,14 +11,14 @@ import Foundation
 extension String {
     
     var urlEncoded: String {
-        return self.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
     
     var nonIntCharactersStripped: String {
         var newVal = self
         for i in self.characters {
             guard let _ = Int("\(i)") else {
-                newVal = newVal.stringByReplacingOccurrencesOfString("\(i)", withString: "")
+                newVal = newVal.replacingOccurrences(of: "\(i)", with: "")
                 continue
             }
         }

@@ -10,7 +10,7 @@ import Foundation
 
 class SERSEEngine {
     
-    var query: String!
+    var query: String = ""
     
     init(query: String) {
         self.query = query
@@ -24,9 +24,9 @@ class SERSEEngine {
             pagedURLs.append(baseURL + "&start=\((i * 10) + 1)")
         }
         for i in pagedURLs {
-            let resData = NSData(contentsOfURL: NSURL(string: i)!)
+            let resData = try? Data(contentsOf: URL(string: i)!)
             if let data = resData {
-                let json = try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! [String: AnyObject]
+                let json = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String: AnyObject]
                 let items = json["items"] as! [[String: AnyObject]]
                 for j in items {
                     finalResult = finalResult + " \(j["snippet"] as! String)"
