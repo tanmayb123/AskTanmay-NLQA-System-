@@ -3,7 +3,8 @@
 
 This repository contains the complete source code for AskTanmay.
 ### Current Versions
-(Stable) 2.1 (master)
+(Beta) 3.0 (master)
+(Stable) 2.1 (master - commit f27d383)
 
 
 ----------
