@@ -22,7 +22,8 @@ let CAG_NGRAMMINING_SCRIPTNAME = "ngrammine"
 let CAG_NGRAMMINING_SAVETO = "documents.txt"
 let CAG_NGRAMMINING_LOADFROM = "candanswers.txt"
 
-let CAFS_NERFNS_ALCHEMYAPIKEY = "[AlchemyLanguage API Key]"
+let CAFS_NERFNS_CLASSNAME = "NER_FNS"
+let CAFS_NERFNS_DEPENDENCY_JAR = "combined.jar"
 
 let PYTHONBRIDGE_COMMAND = "python"
 let JAVABRIDGE_COMMAND = "java"

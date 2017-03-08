@@ -16,75 +16,48 @@ class CAFS {
     
     var candidateAnswers: [(String, Int)] = []
     
-    var NERFNSResults: [(String, Int)] = []
-    
-    var group = AsyncGroup()
-    
     init(userQuery: String, ATDResult: String, candidateAnswers: [(String, Int)]) {
         self.userQuery = userQuery
         self.ATDResult = ATDResult
         self.candidateAnswers = candidateAnswers
     }
     
-    func runCAFS(completion: @escaping (([String: Int]) -> Void)) {
-        runNERFNS(completionHandler: { (a) in
-            self.candidateAnswers = a
-            self.candidateAnswers = self.runDCM()
-            self.candidateAnswers = self.runQAR()
-            var finalValue: [String: Int] = [:]
-            for i in self.candidateAnswers {
-                finalValue[i.0] = i.1
-            }
-            completion(finalValue)
-        })
+    func runCAFS() -> [String: Int] {
+        candidateAnswers = runNERFNS()
+        candidateAnswers = runDCM()
+        candidateAnswers = runQAR()
+        var finalValue: [String: Int] = [:]
+        for i in candidateAnswers {
+            finalValue[i.0] = i.1
+        }
+        return finalValue
     }
     
-    func runNERFNS(completionHandler: @escaping (([(String, Int)]) -> Void)) {
-        let ORGS = ["Organization", "Company", "Facility"]
-        let PERS = ["Person"]
-        let LOCS = ["City", "Continent", "Country", "GeographicFeature", "StateOrCounty"]
-        for i in candidateAnswers {
-            group.background {
-                var alnum: NSMutableCharacterSet = NSMutableCharacterSet(charactersIn: " ")
-                alnum.formUnion(with: CharacterSet.alphanumerics)
-                let strippedReplacement: String = i.0.components(separatedBy: alnum.inverted).joined(separator: "")
-                let cURL_cmd = "curl -X POST -d \"outputMode=json\" -d \"url=http://tanmaybakshi.com/echo.php?toEcho=\(strippedReplacement)\" \"https://gateway-a.watsonplatform.net/calls/url/URLGetRankedNamedEntities?apikey=\(CAFS_NERFNS_ALCHEMYAPIKEY)\""
-                let result = (try! JSONSerialization.jsonObject(with: RunShell().execcmd(cURL_cmd).data(using: String.Encoding.utf8.rawValue)!, options: .mutableContainers) as! [String: AnyObject])["entities"] as! [[String: AnyObject]]
-                var parsedResult = ""
-                var parsedScore = 0
-                for k in result {
-                    if self.ATDResult == "ORGANIZATION" && ORGS.contains(k["type"] as! String) {
-                        parsedResult = k["text"] as! String
-                        parsedScore = i.1
-                    } else if self.ATDResult == "PERSON" && PERS.contains(k["type"] as! String) {
-                        parsedResult = k["text"] as! String
-                        parsedScore = i.1
-                    } else if self.ATDResult == "GPE" && LOCS.contains(k["type"] as! String) {
-                        parsedResult = k["text"] as! String
-                        parsedScore = i.1
-                    } else {
-                        if self.ATDResult == (k["type"] as! String) {
-                            parsedResult = k["text"] as! String
-                            parsedScore = i.1
-                        }
-                    }
-                    break
-                }
-                if parsedResult != "" {
-                    if self.ATDResult == "PERSON" {
-                        if parsedResult.contains(" ") {
-                            parsedScore *= 10
-                        }
-                        if parsedResult.lowercased() != parsedResult {
-                            parsedScore *= 5
-                        }
-                    }
-                    self.NERFNSResults.append((parsedResult, parsedScore))
-                }
-            }
+    func runNERFNS() -> [(String, Int)] {
+        var arguments = "\(ATDResult)"
+        var arguments2 = "\(ATDResult)"
+        let zeroTo = ((candidateAnswers.count % 2 == 0 ? candidateAnswers.count : candidateAnswers.count - 1) / 2) - 1
+        for i in candidateAnswers[0...zeroTo] {
+            var alnum: NSMutableCharacterSet = NSMutableCharacterSet(charactersIn: " ")
+            alnum.formUnion(with: CharacterSet.alphanumerics)
+            let strippedReplacement: String = i.0.components(separatedBy: alnum.inverted).joined(separator: "")
+            arguments += " \"\(strippedReplacement)\" \(i.1)"
         }
-        group.wait()
-        completionHandler(self.NERFNSResults)
+        for i in candidateAnswers[zeroTo + 1...candidateAnswers.count - 1] {
+            var alnum: NSMutableCharacterSet = NSMutableCharacterSet(charactersIn: " ")
+            alnum.formUnion(with: CharacterSet.alphanumerics)
+            let strippedReplacement: String = i.0.components(separatedBy: alnum.inverted).joined(separator: "")
+            arguments2 += " \"\(strippedReplacement)\" \(i.1)"
+        }
+        var finalValue = [(String, Int)]()
+        let result = JavaBridge(classpath: CAFS_NERFNS_DEPENDENCY_JAR, className: CAFS_NERFNS_CLASSNAME).runJar(arguments)
+        let resfinal = JavaBridge(classpath: CAFS_NERFNS_DEPENDENCY_JAR, className: CAFS_NERFNS_CLASSNAME).runJar(arguments2) + result
+        var resultSplit = resfinal.components(separatedBy: "\n")
+        resultSplit.removeLast()
+        for (ind, val) in resultSplit.enumerated() where ind % 2 == 0 {
+            finalValue.append((val, Int(resultSplit[ind+1])!))
+        }
+        return finalValue
     }
     
     func runDCM() -> [(String, Int)] {
