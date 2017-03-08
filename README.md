@@ -3,7 +3,9 @@
 
 This repository contains the complete source code for AskTanmay.
 ### Current Versions
-(Stable) 2.1 (master)
+(Beta) 3.0 (master)
+
+(Stable) 2.1 (master - commit f27d383)
 
 
 ----------
@@ -23,7 +25,6 @@ AskTanmay is a Natural Language Question-Answering system (NLQA system), built i
 In order to build AskTanmay, you must have the following dependencies:
 
  - Python 2.7.10
- - Java 8
  - Xcode 8.2.1 (latest stable Xcode)
  - macOS
 
@@ -31,7 +32,6 @@ In order to build AskTanmay, you must have the following dependencies:
 
 Before building & running AskTanmay, you will need to fill out some credentials & API Keys. You need to fill out credentials in the following files:
 - `TanmayQA/GlobalConstants.swift`
-- `TanmayQA_NER_FNS/NER_FNS.java` (at `service.setApiKey("<ALCHEMYAPI KEY>");`)
 
 Now, the build instructions:
 
@@ -50,10 +50,7 @@ In order to run the binary, do this:
 ----------
 ## Credits
 AskTanmay's dependencies consist of the following software:
-- IBM Watson java-sdk (v2.9.5)
-- gson (v2.3.1)
-- okhttp (v2.7.4)
-- okio (v1.4.0)
+- Async (v2.0.1)
 - topia.termextract
 - zope.interface
 

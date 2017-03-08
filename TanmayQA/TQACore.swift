@@ -26,20 +26,21 @@ class TQACore {
         runSATD()
         runSERSE()
         runCAG()
-        runCAFS_Ranking()
-        var finalAnswers = [(String, Int)]()
-        for i in 1...5 {
-            if let _ = answers.first {
-                finalAnswers.append(answers.removeFirst())
+        runCAFS_Ranking(completion: { (_) in
+            var finalAnswers = [(String, Int)]()
+            for i in 1...5 {
+                if let _ = self.answers.first {
+                    finalAnswers.append(self.answers.removeFirst())
+                }
             }
-        }
-        var totalPoints = 0
-        finalAnswers.map({ totalPoints += $0.1 })
-        print("\n")
-        print("Done! Final Answers:")
-        for i in finalAnswers {
-            print("\(i.0) with \(Int(round((Double(i.1) / Double(totalPoints)) * 100)))% Confidence")
-        }
+            var totalPoints = 0
+            finalAnswers.map({ totalPoints += $0.1 })
+            print("\n")
+            print("Done! Final Answers:")
+            for i in finalAnswers {
+                print("\(i.0) with \(Int(round((Double(i.1) / Double(totalPoints)) * 100)))% Confidence")
+            }
+        })
     }
     
     func runATD() {
@@ -69,10 +70,13 @@ class TQACore {
         print("Done!")
     }
     
-    func runCAFS_Ranking() {
+    func runCAFS_Ranking(completion: @escaping (([String: Int]) -> Void)) {
         print("Running CAFS & Ranking...")
-        answers = Ranker().quicksort(CAFS(userQuery: userQuery, ATDResult: ATDRes, candidateAnswers: answers).runCAFS())
-        print("Done!")
+        CAFS(userQuery: userQuery, ATDResult: ATDRes, candidateAnswers: answers).runCAFS(completion: { (a) in
+            self.answers = Ranker().sortCandidates(a)
+            print("Done!")
+            completion(a)
+        })
     }
     
 }
