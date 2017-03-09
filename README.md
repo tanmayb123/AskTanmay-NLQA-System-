@@ -5,6 +5,8 @@ This repository contains the complete source code for AskTanmay.
 ### Current Versions
 (Stable) 2.1 (master)
 
+(Beta) 3.0 (TQA-3.0-beta)
+
 
 ----------
 ## What is AskTanmay?
